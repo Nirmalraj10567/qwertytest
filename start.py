@@ -3,6 +3,7 @@ import requests
 from bs4 import BeautifulSoup as BS
 from headers import headers
 import urls
+import pyrogram
 import os
 #import asyncio
 from youtube_dl import YoutubeDL
