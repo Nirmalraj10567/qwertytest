@@ -2,7 +2,6 @@ aiohttp
 aria2p
 asyncio
 beautifulsoup4
-beautifulsoup
 git+git://github.com/google/chatbase-python.git
 hachoir
 numpy
