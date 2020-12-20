@@ -206,7 +206,7 @@ async def handler(event):
     #os.remove(path)
 
 
-@client.on(events.NewMessage(pattern='(?i)https://www.mxplayer.in/movie/'))
+@client.on(events.NewMessage(pattern='(?i)https://www.zee5.com'))
 
 async def handler(event):
 
@@ -218,7 +218,7 @@ async def handler(event):
 
 
     chat = await event.get_chat()
-    url = f'''https://mx.tpro.ga/player?id={link1}&type=movie'''
+    url = f'''https://zee5-player.vercel.app/player?id={link'''
 #open and read page
     page = requests.get(url)
     v = page.text
