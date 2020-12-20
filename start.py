@@ -106,24 +106,30 @@ async def handler(event):
 
     await client.send_message(chat,c.join(e))
 
-#@client.on(events.NewMessage(pattern='(?i)https://www.zee5.com'))
+@client.on(events.NewMessage(pattern='(?i)https://www.zee5.com'))
 
 #async def handler(event):
+async def handler(event):
 
-    #link =event.text.split('/')[-1]
-   # print(link)
-    #chat = await event.get_chat()
-    #urlq= f'''https://zee5-player.vercel.app/player?id={link}'''
-    #page = requests.get(urlq)
-   # v = page.text
-   # soup = BS(page.text)
-   # video = soup.find("video")
-    #SRC = video.find("source").get("src")
+    link =event.text.split('/')[-1]
+    link1 =event.text.split('-')[-1]
     
-    
-   # markup = client.build_reply_markup(Button.url("Zee5_Stream",SRC))
-    #await client.send_message(chat, "Support @SerialCoIn & @urlicupload\n\n",file=video["poster"], buttons=markup)   
-    #print (SRC)
+    print(link1)
+chat = await event.get_chat()
+    urlq = f'''https://zee5-player.vercel.app/player?id={link'''
+#open and read page
+    page = requests.get(url)
+    v = page.text
+#html = v.read()
+#create BeautifulSoup parse-able "soup"
+    soup = BS(page.text)
+    video = soup.find("video")
+#get the src attribute from the video tag
+    SRC = video.find("source").get("src")
+    markup = client.build_reply_markup(Button.url("Zee5_Stream",SRC))
+    await client.send_message(chat, SRC)
+
+
 @client.on(events.NewMessage(pattern='(?i)https://www.mxplayer.in/show/'))
 
 async def handler(event):
@@ -206,30 +212,7 @@ async def handler(event):
     #os.remove(path)
 
 
-@client.on(events.NewMessage(pattern='(?i)https://www.zee5.com'))
 
-async def handler(event):
-
-    link =event.text.split('/')[-1]
-    link1 =event.text.split('-')[-1]
-    
-    print(link1)
-
-
-
-    chat = await event.get_chat()
-    urlq = f'''https://zee5-player.vercel.app/player?id={link'''
-#open and read page
-    page = requests.get(url)
-    v = page.text
-#html = v.read()
-#create BeautifulSoup parse-able "soup"
-    soup = BS(page.text)
-    video = soup.find("video")
-#get the src attribute from the video tag
-    SRC = video.find("source").get("src")
-    markup = client.build_reply_markup(Button.url("Zee5_Stream",SRC))
-    await client.send_message(chat, SRC)
 
 
 
