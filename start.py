@@ -10,11 +10,7 @@ from youtube_dl import YoutubeDL
 #from flask import request
 
 
-client = TelegramClient('anfghohn', int(os.environ.get("APP_ID" )), os.environ.get("API_HASH")).start(bot_token= os.environ.get("TG_BOT_TOKEN"))
-#@client.on(events.NewMessage(pattern='/start'))
-#async def handler(event):
-    #chat = await event.get_chat()
-    #await client.send_message(chat,"""Hai...!
+client.start()
     
 #This is a Zee5 Downloader Bot!
 
@@ -98,6 +94,6 @@ async def handler(event):
     await client.send_message(chat, "Support @SerialCoIn & @urlicupload\n\n",file=video["poster"], buttons=markup)   
     #print (SRC)
     #print (SRC)
-client.start()
+
 
 client.run_until_disconnected()
