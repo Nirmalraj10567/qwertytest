@@ -218,7 +218,7 @@ async def handler(event):
 
 
     chat = await event.get_chat()
-    url = f'''https://zee5-player.vercel.app/player?id={link'''
+    urlq = f'''https://zee5-player.vercel.app/player?id={link'''
 #open and read page
     page = requests.get(url)
     v = page.text
