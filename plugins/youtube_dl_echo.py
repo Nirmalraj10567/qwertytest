@@ -48,7 +48,7 @@ async def echo(bot, update):
     # )
     logger.info(update.from_user)
     url = update.text
-    await bot.delete_messages(chat_id=update.chat.id,message_ids=update.message_id,revoke=True)
+    
            
 
 
@@ -61,23 +61,29 @@ async def echo(bot, update):
         if len(url_parts) == 2:
             url = url_parts[0]
             file_name = url_parts[1]
+            await bot.delete_messages(chat_id=update.chat.id,message_ids=update.message_id)
         elif len(url_parts) == 4:
             url = url_parts[0]
             file_name = url_parts[1]
             youtube_dl_username = url_parts[2]
             youtube_dl_password = url_parts[3]
+            await bot.delete_messages(chat_id=update.chat.id,message_ids=update.message_id)
         else:
             for entity in update.entities:
                 if entity.type == "text_link":
                     url = entity.url
+                    await bot.delete_messages(chat_id=update.chat.id,message_ids=update.message_id)
                 elif entity.type == "url":
                     o = entity.offset
                     l = entity.length
                     url = url[o:o + l]
+                    await bot.delete_messages(chat_id=update.chat.id,message_ids=update.message_id)
         if url is not None:
             url = url.strip()
+            await bot.delete_messages(chat_id=update.chat.id,message_ids=update.message_id)
         if file_name is not None:
             file_name = file_name.strip()
+            await bot.delete_messages(chat_id=update.chat.id,message_ids=update.message_id)
         # https://stackoverflow.com/a/761825/4723940
         if youtube_dl_username is not None:
             youtube_dl_username = youtube_dl_username.strip()
@@ -89,10 +95,12 @@ async def echo(bot, update):
         for entity in update.entities:
             if entity.type == "text_link":
                 url = entity.url
+                await bot.delete_messages(chat_id=update.chat.id,message_ids=update.message_id)
             elif entity.type == "url":
                 o = entity.offset
                 l = entity.length
                 url = url[o:o + l]
+                await bot.delete_messages(chat_id=update.chat.id,message_ids=update.message_id)
     if Config.HTTP_PROXY != "":
         command_to_exec = [
             "youtube-dl",
