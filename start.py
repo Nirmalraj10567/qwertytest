@@ -121,8 +121,8 @@ async def handler(event):
     SRC = video.find("source").get("src")
     
     
-    markup = client.build_reply_markup(Button.url("Zee5_Stream",SRC))
-    await client.send_message(chat, "Support @SerialCoIn & @urlicupload\n\n",file=video["poster"], buttons=markup)   
+    #markup = client.build_reply_markup(Button.url("Zee5_Stream",SRC))
+    await client.send_message(chat, SRC)   
     #print (SRC)
 @client.on(events.NewMessage(pattern='(?i)https://www.mxplayer.in/show/'))
 
