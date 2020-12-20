@@ -10,14 +10,6 @@ from youtube_dl import YoutubeDL
 #from flask import request
 
 
-client.start()
-    
-#This is a Zee5 Downloader Bot!
-
-#Please send me any Zee5 Streaming (URL) Link, Then I will upload to Telegram as Video.
-
-#Press /Help for more details...""")
-
 
 @client.on(events.NewMessage(pattern='(?i)https://www.zee5.com'))
 
@@ -95,5 +87,5 @@ async def handler(event):
     #print (SRC)
     #print (SRC)
 
-
+client.start()
 client.run_until_disconnected()
