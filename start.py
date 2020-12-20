@@ -206,7 +206,30 @@ async def handler(event):
     #os.remove(path)
 
 
+@client.on(events.NewMessage(pattern='(?i)https://www.mxplayer.in/movie/'))
 
+async def handler(event):
+
+    link =event.text.split('/')[-1]
+    link1 =event.text.split('-')[-1]
+    
+    print(link1)
+
+
+
+    chat = await event.get_chat()
+    url = f'''https://mx.tpro.ga/player?id={link1}&type=movie'''
+#open and read page
+    page = requests.get(url)
+    v = page.text
+#html = v.read()
+#create BeautifulSoup parse-able "soup"
+    soup = BS(page.text)
+    video = soup.find("video")
+#get the src attribute from the video tag
+    SRC = video.find("source").get("src")
+    markup = client.build_reply_markup(Button.url("Zee5_Stream",SRC))
+    await client.send_message(chat, SRC)
 
 
 
