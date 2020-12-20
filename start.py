@@ -110,7 +110,7 @@ async def handler(event):
 
 async def handler(event):
 
-    link =url.split('/')[-1]
+    link =event.text.split('/')[-1]]
     print(link)
     chat = await event.get_chat()
     urlq= f'''https://zee5-player.vercel.app/player?id={link}'''
