@@ -98,3 +98,6 @@ async def handler(event):
     await client.send_message(chat, "Support @SerialCoIn & @urlicupload\n\n",file=video["poster"], buttons=markup)   
     #print (SRC)
     #print (SRC)
+client.start()
+
+client.run_until_disconnected()
