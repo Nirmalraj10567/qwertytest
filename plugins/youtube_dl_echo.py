@@ -48,7 +48,11 @@ async def echo(bot, update):
     # )
     logger.info(update.from_user)
     url = update.text
-    await message.delete()
+    await bot.delete_messages(chat_id=update.chat.id,message_ids=update.message_id,revoke=True)
+           
+,
+
+        
     youtube_dl_username = None
     youtube_dl_password = None
     file_name = None
