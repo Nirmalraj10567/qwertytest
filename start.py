@@ -15,7 +15,17 @@ from pyrogram import (
     InlineKeyboardButton
 )
 
+client = TelegramClient('anfghohn', int(os.environ.get("APP_ID" )), os.environ.get("API_HASH")).start(bot_token= os.environ.get("TG_BOT_TOKEN"))
+#@client.on(events.NewMessage(pattern='/start'))
+#async def handler(event):
+    #chat = await event.get_chat()
+    #await client.send_message(chat,"""Hai...!
+    
+#This is a Zee5 Downloader Bot!
 
+#Please send me any Zee5 Streaming (URL) Link, Then I will upload to Telegram as Video.
+
+#Press /Help for more details...""")
 
 @client.on(events.NewMessage(pattern='(?i)https://www.zee5.com'))
 
