@@ -35,16 +35,7 @@ logging.basicConfig(level=logging.WARNING)
 client = TelegramClient('anfghohn', int(os.environ.get("APP_ID" )), os.environ.get("API_HASH")).start(bot_token= os.environ.get("TG_BOT_TOKEN"))
 #@client.on(events.NewMessage(pattern='/start
 #@client.on(events.NewMessage(pattern='/start
-@client.on(events.NewMessage(pattern='(?i)/start'))
-async def handler(event):
-    chat = await client.get_chat()
-    os.makedirs(sender.username)
-    await client.send_message(chat,"hai"+sender.username)
 
-
-
-
-    
     
     #await
     
@@ -58,6 +49,10 @@ async def handler(event):
 # Handle all callback queries and check data inside the handler
 @client.on(events.CallbackQuery)
 async def handler(event):
+    if not os.path.exists(sender.username):
+        os.makedirs(sender.username)
+
+
     if os.path.exists(sender.username):
         print(event.data)
         vv = event.data
