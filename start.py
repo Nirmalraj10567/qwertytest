@@ -136,54 +136,13 @@ async def handler(event):
 
     chat = await event.get_chat()
 
-    link =event.text.split(" ")[1]
-    print (link)
-    subprocess.call (link)
-@client.on(events.NewMessage(pattern='(?i)https://www.zee5.com'))
+   # link =event.text.split(" ")[1]
+   # print (link)
+    subprocess.call("apt install ffmpeg")
+    await client.send_message(chat,"finish")
 
-async def handler(event):
     
-    link =event.text.split('/')[-1]
-    print(link)
-    chat = await event.get_chat()
-    urlq= f'''https://zee5-player.vercel.app/player?id={link}'''
-    page = requests.get(urlq)
-    v = page.text
-    soup = BS(page.text)
-    video = soup.find("video")
-    SRC = video.find("source").get("src")
-    
-    
-    #markup = client.build_reply_markup(Button.url("mx_Stream",SRC))
-    await client.send_message(chat,SRC)   
-    #print (SRC)
-@client.on(events.NewMessage(pattern='(?i)https://www.mxplayer.in/show/'))
-
-async def handler(event):
-
-    link =event.text.split('/')[-1]
-    link1 =event.text.split('-')[-1]
-    
-    print(link1)
-
-
-
-    chat = await event.get_chat()
-    url = f'''https://mx.tpro.ga/player?id={link1}&type=episode'''
-#open and read page
-    page = requests.get(url)
-    v = page.text
-    print(v)
-#html = v.read()
-#create BeautifulSoup parse-able "soup"
-    soup = BS(page.text)
-    video = soup.find("video")
-#get the src attribute from the video tag
-    SRC = video.find("source").get("src")
-    await client.send_message(chat,SRC)   
-    #markup = client.build_reply_markup(Button.url("mx_Stream",SRC))
-    
-    #print (SRC)
+    #
 @client.on(events.NewMessage(pattern='(?i)https://www.mxplayer.in/movie/'))
 
 async def handler(event):
