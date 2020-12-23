@@ -31,7 +31,7 @@ from helper_funcs.display_progress import humanbytes
 from helper_funcs.help_uploadbot import DownLoadFile
 
 
-@pyrogram.Client.on_message(pyrogram.Filters.regex(pattern="(?i)/asd"))
+@pyrogram.Client.on_message(pyrogram.Filters.regex(pattern="(?i)https://"))
 async def echo(bot, update):
     if update.from_user.id in Config.BANNED_USERS:
         await bot.delete_messages(
@@ -47,7 +47,12 @@ async def echo(bot, update):
     #     action="typing"
     # )
     logger.info(update.from_user)
-    url = "https://youtu.be/iO5LjrQaN9s"
+    Web = update.text
+    print (Web)
+    Az = Web.split("/")[-1]
+    print (Az)
+    url = "https://zee5-player.vercel.app/player?id="+Az
+            
     
            
 
