@@ -74,8 +74,9 @@ async def handler(event):
         print(fz)
         ydl_opts = {'outtmpl':"/app/"+event.sender.username+"/",'format':fz,'proxy':'SOCKS5://49.12.0.103:36895'}
         with youtube_dl.YoutubeDL(ydl_opts) as ydl:
-            Y=ydl.extract_info("https://zee5-player.vercel.app/player?id="+urlz, download=False)
+            Y=ydl.extract_info("https://zee5-player.vercel.app/player?id="+urlz, download=True)
             print(Y)
+            chat = await event.get_chat()
             list = os.listdir("/app/"+event.sender.username+"/")
             await client.send_message(chat,list)
     
