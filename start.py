@@ -72,7 +72,7 @@ async def handler(event):
         f = x[2]
         fz= f.split(" ")[0] #format
         print(fz)
-        ydl_opts = {'outtmpl':"/app/"+event.sender.username+"/",'format':fz,'proxy':'SOCKS5://49.12.0.103:36895'}
+        ydl_opts = {'outtmpl':"/app/"+event.sender.username+"/",'format':fz}
         with youtube_dl.YoutubeDL(ydl_opts) as ydl:
             Y=ydl.extract_info("https://zee5-player.vercel.app/player?id="+urlz, download=True)
             print(Y)
@@ -104,7 +104,7 @@ async def handler(event):
 
     chat = await event.get_chat()
     link =event.text.split(" ")[1]
-    ydl_opts = {'proxy':'SOCKS5://49.12.0.103:36895'}
+    ydl_opts = {'proxy':'SOCKS5:/}
     with youtube_dl.YoutubeDL(ydl_opts) as ydl:
         Y=ydl.extract_info("https://zee5-player.vercel.app/player?id="+link, download=False)
     X = Y
@@ -130,17 +130,8 @@ async def handler(event):
 
 
     #await client.send_message(chat,c.join(e))
-@client.on(events.NewMessage(pattern='(?i)/lss'))
 
-async def handler(event):
-
-    chat = await event.get_chat()
-
-   # link =event.text.split(" ")[1]
-   # print (link)
-   # subprocess.call("sudo apt update")
-    subprocess.call("RUN apt -qq install -y git ffmpeg")
-    await client.send_message(chat,"finish")
+    
 
     
     #
