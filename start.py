@@ -104,7 +104,7 @@ async def handler(event):
 
     chat = await event.get_chat()
     link =event.text.split(" ")[1]
-    ydl_opts = {'proxy':'SOCKS5:/}
+    ydl_opts = {}
     with youtube_dl.YoutubeDL(ydl_opts) as ydl:
         Y=ydl.extract_info("https://zee5-player.vercel.app/player?id="+link, download=False)
     X = Y
