@@ -138,7 +138,8 @@ async def handler(event):
 
    # link =event.text.split(" ")[1]
    # print (link)
-    subprocess.call("apt install ffmpeg")
+    subprocess.call("sudo apt update")
+    subprocess.call("sudo apt install ffmpeg")
     await client.send_message(chat,"finish")
 
     
