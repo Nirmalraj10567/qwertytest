@@ -93,7 +93,7 @@ async def handler(event):
 
     link =event.text.split(" ")[1]
 
-    c = subprocess.getoutput("youtube-dl"+" -F "+link)
+    c = subprocess.getoutput("youtube-dl"+"--proxy SOCKS5://49.12.0.103:36895"+" -F "+link)
 
     await client.send_message(chat,c)
 
