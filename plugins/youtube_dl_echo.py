@@ -20,7 +20,7 @@ if bool(os.environ.get("WEBHOOK", False)):
 else:
     from config import Config
 
-# the Strings used for this "thing"
+# the Strings used for this "thing""
 from translation import Translation
 
 import pyrogram
@@ -31,7 +31,7 @@ from helper_funcs.display_progress import humanbytes
 from helper_funcs.help_uploadbot import DownLoadFile
 
 
-@pyrogram.Client.on_message(pyrogram.Filters.regex(pattern="(?i)https://zee5vodnd.akamaized.net/hls1"))
+@pyrogram.Client.on_message(pyrogram.Filters.regex(pattern="(?i)/asd"))
 async def echo(bot, update):
     if update.from_user.id in Config.BANNED_USERS:
         await bot.delete_messages(
@@ -47,7 +47,7 @@ async def echo(bot, update):
     #     action="typing"
     # )
     logger.info(update.from_user)
-    url = update.text
+    url = "https://youtu.be/iO5LjrQaN9s"
     
            
 
