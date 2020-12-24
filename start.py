@@ -104,18 +104,20 @@ async def handler(event):
 
     chat = await event.get_chat()
     link =event.text.split(" ")[1]
-    ydl_opts = {}
-    with youtube_dl.YoutubeDL(ydl_opts) as ydl:
-        Y=ydl.extract_info("https://zee5-player.vercel.app/player?id="+link, download=False)
-    X = Y
-    for x in range(len(X)):
+    entries = os.listdir(link)
+    await client.send_message(chat, entries)
+  #  ydl_opts = {}
+   # with youtube_dl.YoutubeDL(ydl_opts) as ydl:
+     #   Y=ydl.extract_info("https://zee5-player.vercel.app/player?id="+link, download=False)
+ #   X = Y
+  #  for x in range(len(X)):
         #Op=x
         #print (Op)
         
         #print(Op)
-        ytdlf= X["entries"][0]["formats"][x]["format"]
-        await client.send_message(chat, 'https://www.zee5.com', buttons=
-    Button.inline(ytdlf,link+"b"+ytdlf))
+      #  ytdlf= X["entries"][0]["formats"][x]["format"]
+     #   await client.send_message(chat, 'https://www.zee5.com', buttons=
+  #  Button.inline(ytdlf,link+"b"+ytdlf))
         
     #c = subprocess.getoutput("youtube-dl"+" -F "+link)
     #await client.send_message(chat,c)
