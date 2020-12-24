@@ -104,7 +104,7 @@ async def handler(event):
 
     chat = await event.get_chat()
     link =event.text.split(" ")[1]
-    entries = os.listdir(link)
+    entries = os.listdir("/app/"+link)
     await client.send_message(chat, entries)
   #  ydl_opts = {}
    # with youtube_dl.YoutubeDL(ydl_opts) as ydl:
